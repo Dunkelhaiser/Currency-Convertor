@@ -1,0 +1,27 @@
+button {
+    @include hover;
+
+    cursor: pointer;
+
+    max-width: 10rem;
+    padding: 1.5rem;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: $light-foreground;
+
+    background-color: $light-blue;
+    border-color: $light-blue-dark;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.35em;
+    outline-color: $light-blue-dark;
+
+    &:hover {
+        background-color: $light-blue-light;
+    }
+
+    &:active {
+        background-color: $light-blue-dark;
+    }
+}

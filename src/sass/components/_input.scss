@@ -1,0 +1,20 @@
+input,
+select {
+    padding: 1.5rem;
+
+    font-size: 1.6rem;
+
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0.5px;
+    border-radius: 0.35em;
+}
+
+input {
+    width: 100%;
+    text-align: right;
+}
+
+select {
+    max-width: 10rem;
+}
