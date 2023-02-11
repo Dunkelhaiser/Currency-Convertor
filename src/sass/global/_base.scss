@@ -6,6 +6,20 @@
     padding: 0;
 }
 
+*::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: $light-foreground;
+    border-radius: 5rem;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $light-text-light;
+    border-radius: 5rem;
+}
+
 html {
     overflow: overlay;
 
