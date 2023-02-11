@@ -8,6 +8,7 @@
         <meta name="description" content="Exchange Rate" />
         <title>Exchange Rate</title>
         <script src="./src/converter.ts" type="module" defer></script>
+        <script src="./src/select.ts" type="module" defer></script>
         <script src="https://kit.fontawesome.com/d9d08682e3.js" crossorigin="anonymous" defer></script>
     </head>
     <body>
@@ -15,7 +16,17 @@
             <div class="container">
                 <h1>Currency Converter</h1>
                 <div class="currency-section">
-                    <select id="select-first"></select>
+                    <div class="select-wrapper" id="select-first">
+                        <div class="select-btn">
+                            <span class="option">Select</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="content">
+                            <input type="text" placeholder="Search..." id="search" autocomplete="off" />
+                            <ul class="options"></ul>
+                        </div>
+                    </div>
+
                     <input type="number" min="0.0001" value="1" id="input-first" />
                 </div>
                 <div class="currency-section">
@@ -23,7 +34,16 @@
                     <span id="exchange-rate"></span>
                 </div>
                 <div class="currency-section">
-                    <select id="select-second"></select>
+                    <div class="select-wrapper" id="select-second">
+                        <div class="select-btn">
+                            <span class="option">Select</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="content">
+                            <input type="text" placeholder="Search..." id="search" autocomplete="off" />
+                            <ul class="options"></ul>
+                        </div>
+                    </div>
                     <input type="number" min="0.0001" value="1" id="input-second" />
                 </div>
             </div>

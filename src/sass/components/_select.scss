@@ -1,0 +1,117 @@
+.select-wrapper {
+    @include flex(column, flex-start, flex-start, flex-start, 1rem, nowrap);
+
+    position: relative;
+    min-width: 11rem;
+
+    .select-btn {
+        @include flex(row, space-between, center, flex-start, 2rem, nowrap);
+
+        user-select: none;
+
+        width: 100%;
+        padding: 1.5rem;
+
+        font-size: 1.6rem;
+
+        background-color: $light-white;
+        border-style: solid;
+        border-width: 0.5px;
+        border-radius: 0.35em;
+
+        i {
+            transition: rotate 0.3s linear;
+        }
+    }
+
+    .content {
+        position: absolute;
+        z-index: 999;
+        top: 7rem;
+
+        display: none;
+
+        padding: 1.5rem;
+
+        background-color: $light-white;
+        border-style: solid;
+        border-width: 0.5px;
+        border-radius: 0.35em;
+
+        &.expanded {
+            display: block;
+        }
+
+        .options {
+            overflow-y: auto;
+            width: 100%;
+            max-height: 25rem;
+            list-style-type: none;
+
+            &::-webkit-scrollbar {
+                width: 0.5rem;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: $light-foreground;
+                border-radius: 5rem;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $light-text-light;
+                border-radius: 5rem;
+            }
+        }
+
+        .options li {
+            user-select: none;
+            padding: 1rem 1.5rem;
+            font-size: 1.6rem;
+            border-radius: 0.35em;
+
+            &:not(:first-child) {
+                margin-top: 0.25rem;
+            }
+
+            &:hover:not(&.not-found),
+            &:focus:not(&.not-found) {
+                background-color: $light-foreground;
+            }
+
+            &:active:not(&.not-found) {
+                background-color: $light-background;
+            }
+        }
+    }
+
+    #search {
+        display: block;
+
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+
+        font-size: 1.4rem;
+        text-align: left;
+
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $light-text-light;
+        border-radius: 0;
+        outline: none;
+
+        &:focus {
+            border-bottom: 1px solid $light-text-dark;
+        }
+    }
+
+    &.expanded {
+        .content {
+            display: block;
+        }
+
+        .select-btn i {
+            rotate: -180deg;
+        }
+    }
+}
