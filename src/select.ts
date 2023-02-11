@@ -7,6 +7,12 @@ const searchInput = document.querySelectorAll("#search") as NodeListOf<HTMLInput
 const values: string[] = [];
 
 const expand = (i: number) => {
+    selectWrapper.forEach((wrapper, index) => {
+        if (index === i) {
+            return;
+        }
+        wrapper.classList.remove("expanded");
+    });
     selectWrapper[i].classList.toggle("expanded");
 };
 
@@ -47,6 +53,14 @@ const search = (input: HTMLInputElement) => {
     createOptions(input.parentNode!.parentNode! as HTMLDivElement, searchResults);
 };
 
+const escapeSelect = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+        selectWrapper.forEach((wrapper) => {
+            wrapper.classList.remove("expanded");
+        });
+    }
+};
+
 export const defaultValue = (select: HTMLDivElement, value: string) => {
     select.querySelector<HTMLSpanElement>(".option")!.innerText = value;
 };
@@ -59,4 +73,5 @@ export const getValues = (options: string[]) => {
     values.push(...options);
     selectBtn.forEach((btn, index) => btn.addEventListener("click", () => expand(index)));
     searchInput.forEach((input) => input.addEventListener("keyup", () => search(input)));
+    document.addEventListener("keyup", escapeSelect);
 };
