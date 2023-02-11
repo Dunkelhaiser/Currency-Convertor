@@ -25,3 +25,22 @@ button {
         background-color: $light-blue-dark;
     }
 }
+
+.fa-right-left {
+    rotate: 90deg;
+}
+
+#swap-btn {
+    cursor: pointer;
+    margin-left: 3.5rem;
+    font-size: 1.8rem;
+    color: $light-text;
+
+    &:hover {
+        color: $light-text-light;
+    }
+
+    &:active {
+        color: $light-text-dark;
+    }
+}

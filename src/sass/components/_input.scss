@@ -18,3 +18,12 @@ input {
 select {
     max-width: 10rem;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}

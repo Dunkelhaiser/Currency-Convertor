@@ -8,9 +8,11 @@ const inputSecond = document.querySelector("#input-second") as HTMLInputElement;
 const exchangeRateSpan = document.querySelector("#exchange-rate") as HTMLSpanElement;
 
 const showRate = async () => {
-    const conv = await fetch(`https://api.exchangerate.host/convert?from=EUR&to=USD`);
+    const conv = await fetch(`https://api.exchangerate.host/convert?from=${selectFirst.value}&to=${selectSecond.value}`);
     const converted = await conv.json();
-    exchangeRateSpan.innerText = `1 ${converted.query.from} = ${converted.result} ${converted.query.to}`;
+    exchangeRateSpan.innerText = `1 ${converted.query.from} = ${Math.round((converted.result + Number.EPSILON) * 100) / 100} ${
+        converted.query.to
+    }`;
 };
 
 const convert = async () => {
@@ -19,6 +21,7 @@ const convert = async () => {
     );
     const converted = await conv.json();
     inputSecond.value = `${converted.result}`;
+    showRate();
 };
 
 const convertSecond = async () => {
@@ -27,6 +30,7 @@ const convertSecond = async () => {
     );
     const converted = await conv.json();
     inputFirst.value = `${converted.result}`;
+    showRate();
 };
 
 const initialFetch = async () => {
@@ -56,6 +60,7 @@ const swap = () => {
     const temp = selectFirst.value;
     selectFirst.value = selectSecond.value;
     selectSecond.value = temp;
+    showRate();
 };
 
 initialFetch();
