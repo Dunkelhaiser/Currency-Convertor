@@ -40,10 +40,10 @@ const initialFetch = async () => {
     const res = await fetch(`https://api.exchangerate.host/symbols`);
     const currencies = await res.json();
     const currenciesArr: string[] = [];
-    // eslint-disable-next-line no-restricted-syntax, guard-for-in
-    for (const currency in currencies.symbols) {
-        currenciesArr.push(currency);
-    }
+    Object.keys(currencies.symbols).forEach((key) => {
+        const currency = currencies.symbols[key];
+        currenciesArr.push(currency.code);
+    });
     addOptions(selectFirst, currenciesArr);
     addOptions(selectSecond, currenciesArr);
     getValues(currenciesArr);
